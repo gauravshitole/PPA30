@@ -1,47 +1,44 @@
-// Input :  Row 4   Columns    4
-
-/*
-              *
-        *    *
-    *   *   *
-*   *   *  *
-
-*/
-
 #include<stdio.h>
+#include<stdlib.h>
 
-void Display(int iRow, int iCol)
+int Minimum(int Arr[], int iLength)
 {
-        int i = 0, j = 0;
-
-         for(i = 1; i <= iRow;i++)
-        {
-            for(j = iCol; j>=1; j--)
-            {
-                    if(i >= j)
-                    {
-                            printf("*\t");
-                    }
-                    else
-                    {
-                          printf(" \t");
-                    }
-            }
-            printf("\n");
-        }
+    
+    int iMax=0; 
+    int iMin=0;
+ int iCnt=0;
+ int iAns=0;
+    for(iCnt = 0; iCnt<iLength; iCnt++)
+    {
+       if(iMax<Arr[iCnt])
+       {
+           printf("%d\n",Arr[iCnt]);
+       }
+        
+    }
+    
+    return iAns;
+    
 }
 
 int main()
 {
-    int iValue1 =0, iValue2 = 0;
+    int iSize = 0, iCnt = 0, iRet = 0;
+    int *ptr = NULL;
 
-    printf("Enter number of rows :\n");
-    scanf("%d",&iValue1);
+    printf("Enter number of elements\n");
+    scanf("%d",&iSize);
 
-    printf("Enter number of columns :\n");
-    scanf("%d",&iValue2);
+    ptr = (int *)malloc(sizeof(int) * iSize);
 
-    Display(iValue1,iValue2);
+    printf("Enter the values\n");
+    for(iCnt = 0; iCnt < iSize; iCnt++)
+    {
+        scanf("%d",&ptr[iCnt]);
+    }
+    iRet = Minimum(ptr,iSize);
+    printf("Minimum number is : %d\n",iRet);
+    free(ptr);
 
     return 0;
 }
